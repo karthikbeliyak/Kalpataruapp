@@ -9,4 +9,4 @@ class Plant(models.Model):
     image = models.ImageField(upload_to='media/', blank=True)
    
     def __str__(self):
-        return self.name
+        return self.name, self.category

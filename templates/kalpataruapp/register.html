@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Kalpataru register now!</title>
+    <title>Kalpataru</title>
    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body class="override">
-    <nav class="navbar navbar-inverse" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="{% url 'index' %}">Kalpataru</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'index' %}" style="font-size: 30px !important;">Kalpataru</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>           
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">                    
+                    <a class="btn btn-light" href="{% url 'register' %}" role="button"><button type="button" class="btn btn-light">Register</button></a>                
+                </ul>
             </div>
-           
         </div>
     </nav>
    
@@ -31,49 +35,43 @@
                     {% csrf_token %}
                     <div class="col-md-8 col-md-offset-2">
                         <div class="panel panel-default">
-                            <div class="panel-heading">Register with us!</div>
+                            <div class="panel-heading">Register</div>
                             <div class="panel-body">
                                 {% if error_message %}
                                     <p class="bg-danger p-d ml-b">{{ error_message }}</p>
                                 {% endif %}
-                                <div class="form-inline clearfix">
-                                    <label for="{{ form.name.id_for_label }}" class="col-md-4 control-label text-right">Name:</label>
-                                    <input type="text" class="form-control" name='name'>
+                            
+                                <div class="form-group clearfix">
+                                    <label for="{{ form.username.id_for_label }}" class="col-md-4 control-label text-right">Username<span class="text-red"></span>:</label>
                                     <div class="col-md-6">
                                         {{ form.name }}
                                     </div>
                                 </div>
-                                
-                                <div class="form-inline clearfix">
+                                <div class="form-group clearfix">
                                     <label for="{{ form.phone_number.id_for_label }}" class="col-md-4 control-label text-right">Phone Number:</label>
-                                    <input type="tel" class="form-control" name= "phone_number">
                                     <div class="col-md-6">
                                         {{ form.phone_number }}
                                     </div>
                                 </div>
-                                                                
-                                <div class="form-inline clearfix">
+                                <div class="form-group clearfix">
                                     <label for="{{ form.email.id_for_label }}" class="col-md-4 control-label text-right">Email<span class="text-red"></span>:</label>
-                                    <input type="text" class="form-control" name = "email">
                                     <div class="col-md-6">
                                         {{ form.email }}
                                     </div>
                                 </div>
-                                <div class="form-inline clearfix">
+                                <div class="form-group clearfix">
                                     <label for="{{ form.password.id_for_label }}" class="col-md-4 control-label text-right">Password<span class="text-red"></span>:</label>
-                                    <input type="password" class="form-control" name= "password">
                                     <div class="col-md-6">
                                         {{ form.password }}
                                     </div>
                                 </div>
-                                <div class="form-inline clearfix">
+                                <div class="form-group clearfix">
                                     <label for="{{ form.password_repeat.id_for_label }}" class="col-md-4 control-label text-right">Confirm password:</label>
-                                    <input type="password" class="form-control" name="password_repeat">
                                     <div class="col-md-6">
                                         {{ form.password_repeat }}
                                     </div>
-                                </div>
-                                <br>
+                                </div>                               
+                                
                                 <div class="col-md-6 col-md-offset-4">
                                     <input type="submit" value="Register" class="btn btn-success">
                                 </div>
@@ -85,8 +83,5 @@
         </div>
     </div>
    
-   
 </body>
 </html>
-
-    

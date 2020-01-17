@@ -7,6 +7,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('', views.index ,name='index'),
+    path('search/',views.search, name='search'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

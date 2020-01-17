@@ -66,15 +66,15 @@
 
 	<div class="menu">
 		<div class="menu_header d-flex flex-row align-items-center justify-content-start">
-			<div class="menu_logo"><a href="index.html">Kalpatharu</a></div>
+			<div class="menu_logo"><a href="{% url 'index' %}">Kalpatharu</a></div>
 			<div class="menu_close_container ml-auto"><div class="menu_close"><div></div><div></div></div></div>
 		</div>
 		<div class="menu_content">
 			<ul>
-				<li><a href="index.html">Home</a></li>
+				<li><a href="{% url 'index' %}">Home</a></li>
 				<li><a href="about.html">About us</a></li>
 				<li><a href="contact.html">Contact</a></li>
-				<li><a href="accounts/register.html">Register</a></li>
+				<li><a href="{% url 'register' %}">Register</a></li>
 			</ul>
 		</div>
 		<div class="menu_social">
@@ -151,9 +151,9 @@
 
 			<div class="home_page_nav">
 				<ul class="d-flex flex-column align-items-end justify-content-end">
-					<li><a href="#" data-scroll-to="#destinations">Offers<span>01</span></a></li>
+					<li><a href="#" data-scroll-to="#destinations">Plants<span>01</span></a></li>
 					<li><a href="#" data-scroll-to="#testimonials">Testimonials<span>02</span></a></li>
-					<li><a href="#" data-scroll-to="#news">Latest<span>03</span></a></li>
+					<li><a href="#" data-scroll-to="#news">Order<span>03</span></a></li>
 				</ul>
 			</div>
 		</div>
@@ -168,9 +168,9 @@
 					<div class="home_search_container">
 						<div class="home_search_title">Search for Plants</div>
 						<div class="home_search_content">
-							<form action="#" class="home_search_form" id="home_search_form">
+							<form action="{% url 'search' %}" method="GET" class="home_search_form" id="home_search_form">
 								<div class="d-flex flex-lg-row flex-column align-items-center justify-content-lg-between justify-content-start">
-									<input type="text" class="search_input search_input justify-content-center align-items-center" placeholder="Plant Name" required="required">
+									<input type="text" name="search" class="search_input search_input justify-content-center align-items-center" placeholder="Plant Name" required="required">
 									<button class="home_search_button">search</button>
 								</div>
 							</form>
@@ -249,7 +249,7 @@
 						{% for plant in plants %}
 							<div class="destination item">
 								<div class="destination_image">
-									<img src= {{ plant.image.url }} alt="Image here">
+									<img src= {{ plant.image.url }} alt="Image here" style="border:1px solid black">
 								</div>
 								
 								<div class="destination_content">
